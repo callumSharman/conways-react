@@ -1,0 +1,129 @@
+.menu{
+  width:max(20%, 160px);
+  height:100%;
+  background-color: var(--colour-four);
+  backdrop-filter: blur(1px);
+  transition: 0.3s ease-in;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  position: fixed;
+  right: 0;
+
+  border: solid;
+  border-width: 1px;
+  border-color: #2d76f318;
+
+  z-index: 9999;
+
+  transition: 1s;
+}
+
+.menu:hover{
+  width: max(25%, 200px);
+  background-color: #2d76f33b;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.205);
+  transition: 0.3s ease-in-out;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  width: inherit;
+  height: inherit;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding: 0px;
+}
+
+.btnContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link{
+  font-family: monospace;
+  color: var(--colour-text);
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px;
+  transition: 0.07s ease-in;
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.downloadIcon{
+  width: 16px;
+  padding-left: 5px;
+}
+
+.link:hover{
+  color: var(--colour-two);
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.socialLinks{
+  padding-bottom: 12px;
+  position: fixed;
+  bottom: 0;
+}
+
+.menuButton{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 45px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  height: 45px;
+  font-size: 30pt;
+  right: 0;
+  margin-right: 5px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  transition: 1s;
+}
+
+.menuBtnLine{
+  background-color: white;
+  height: 4px;
+  width: 34px;
+  margin: 6px;
+}
+
+@media(max-width: 768px) {
+  .menu{
+    width: 100%;
+    background-color: #133877af;
+    backdrop-filter: blur(2px);
+  }
+  .menu:hover{
+    width: 100%;
+    background-color: #133877af;
+    backdrop-filter: blur(2px);
+    box-shadow: none;
+  }
+  .link:hover{
+    color: inherit;
+  }
+  .socialLinks{
+    display: none;
+  }
+}

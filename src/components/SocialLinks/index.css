@@ -1,0 +1,25 @@
+.externalLinks{
+  height: auto;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.externalLink{
+  height: 26px;
+  width: 26px;
+  background-color: none;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.externalLink:hover{
+  filter: invert(85%) sepia(44%) saturate(2152%) hue-rotate(185deg) brightness(108%) contrast(103%);
+}
+
+.logo{
+  width: inherit;
+  height: inherit;
+}
