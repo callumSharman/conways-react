@@ -23,3 +23,28 @@
   width: inherit;
   height: inherit;
 }
+
+.portfolioLink{
+  height: 26px;
+  margin: 12px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 14pt;
+  font-weight: bold;
+
+  border: solid;
+  border-color: var(--colour-two);
+  border-radius: 2px;
+  background-color: var(--colour-two);
+  color: var(--colour-one);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolioLinkInner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
