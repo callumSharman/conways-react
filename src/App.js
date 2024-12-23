@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Menu from './components/Menu/index.js';
+import GameBoard from './components/GameBoard/index.js';
 
 
 function App() {
@@ -25,10 +26,10 @@ function App() {
       <div className='main'>
         <div className='mainContent'>
 
-          <div className='gameSpace'>The game will be in this box</div>
-
+          <GameBoard numCols={2} numRows={6}></GameBoard>
+          
           <div className='section' id='footer'>
-            Designed and developed in Visual Studio Code with React, deployed through GitHub Pages - 2024
+            Designed and developed in Visual Studio Code with React, deployed through GitHub Pages - 2025
           </div>
           
         </div>

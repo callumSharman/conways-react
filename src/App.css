@@ -86,12 +86,6 @@ h3{
   text-align: left;
 }
 
-.gameSpace{
-  border: solid;
-  border-width: 2px;
-  border-color: green;
-}
-
 @media(max-width: 768px) {
   .main{
     width: 100%;
