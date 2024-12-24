@@ -26,7 +26,10 @@ function App() {
       <div className='main'>
         <div className='mainContent'>
 
-          <GameBoard numCols={2} numRows={6}></GameBoard>
+          <h1>Conway's Game of Life</h1>
+          <h2>Conway's Game of Life</h2>
+          <p></p>
+          <GameBoard numCols={8} numRows={4}></GameBoard>
           
           <div className='section' id='footer'>
             Designed and developed in Visual Studio Code with React, deployed through GitHub Pages - 2025
