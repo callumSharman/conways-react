@@ -1,15 +1,11 @@
 .grid{
   display: grid;
   width: 100%;
-  height: 60vh;
-  border: solid;
-  border-color: green;
 }
 
 .cell{
   border: solid;
   border-color: black;
-  width: 100px;
-  height: 100px;
   background-color: white;
+  border-width: 1px;
 }
