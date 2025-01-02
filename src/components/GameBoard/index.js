@@ -18,15 +18,24 @@ function GameBoard({numRows, numCols}){
     return <div className='cell' style={{width: cellWidth, height: cellWidth, backgroundColor: isAlive ? 'black' : 'white'}}></div>
   });
   
-
+  // fill the grid with white squares
   const emptyGrid = () => {
-
     const newArray = Array.from(cellsArr).fill(0);
     setCells(newArray);
   }
-  const fillGrid = () => {
 
+  // fill the grid with black squares
+  const fillGrid = () => {
     const newArray = Array.from(cellsArr).fill(1);
+    setCells(newArray);
+  }
+
+  // fill the grid with randomised squares
+  const randomiseGrid =() => {
+    const newArray = Array.from(cellsArr);
+    for(let i = 0; i < cellsArr.length; i ++){
+      newArray[i] = Math.round(Math.random());
+    }
     setCells(newArray);
   }
 
@@ -34,6 +43,7 @@ function GameBoard({numRows, numCols}){
     <>
       <button onClick={() => {emptyGrid()}}>Empty</button>
       <button onClick={() => {fillGrid()}}>Fill</button>
+      <button onClick={() => {randomiseGrid()}}>Randomise</button>
       <div className='grid' id='gameGrid' ref={gridRef} style={{gridTemplateColumns: `repeat(${numCols}, ${cellWidth}px)`,
                                     gridTemplateRows: `repeat(${numRows}, ${cellWidth}px)`,
       }}>

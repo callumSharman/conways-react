@@ -6,6 +6,6 @@
 .cell{
   border: solid;
   border-color: black;
-  background-color: white;
+  /* background-color: white; */
   border-width: 1px;
 }
