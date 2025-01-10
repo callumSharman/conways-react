@@ -54,18 +54,41 @@ function GameBoard({numRows, numCols}){
 
   // 1 is alive, 0 is dead - alive is black, dead is white
   const cells = cellsArr.map((isAlive, index) => {
-    return <div className='cell' id={`cell:${index}`} onClick={handleCellClick}
+    return <div className='cell' id={`cell:${index}`} key={index} onClick={handleCellClick}
               style={{width: cellWidth, height: cellWidth, backgroundColor: isAlive ? 'black' : 'white'}}></div>
   });
 
   // update loop (game loop)
   const update = () => {
-    randomiseGrid();
+    // for all cells, update cell into new array, replace array
+    const newArray = Array.from(cellsArr);
+    for(let i = 0; i < numRows*numCols; i++){
+      newArray[i] = updateCell(i);
+    }
+    setCells(newArray);
+  }
+
+  // check in individual cells state and based on the rules of the game, return its final state
+  const updateCell = (cellIdx) => {
+    let cellAlive = cellsArr[cellIdx];
+
+    if(cellAlive){
+      // I need a getNeighbours function I think
+    }
+    // a live cell dies if it has fewer than 2 live neighbours.
+
+    // a live cell with two or three live neighbours lives on to the next generation.
+
+    // a live cell wit hmore than 3 neighbors dies.
+
+    // a dead cell will be brought back to live if it has exactly 3 live neighbors.
+
+    return Math.round(Math.random());
   }
 
   useEffect(() => {
     if(gameRunning){
-      console.log(`gameRunning: ${gameRunning}`);
+      // run the update function periodically
       gameLoopIntervalRef.current = setInterval(update, 100);
     } else {
       clearInterval(gameLoopIntervalRef.current);
@@ -80,7 +103,7 @@ function GameBoard({numRows, numCols}){
       <button onClick={() => {emptyGrid()}}>Empty</button>
       <button onClick={() => {fillGrid()}}>Fill</button>
       <button onClick={() => {randomiseGrid()}}>Randomise</button>
-      <button onClick={() => {playPause()}}>{gameRunning ? 'Play' : 'Pause'}</button>
+      <button onClick={() => {playPause()}}>{gameRunning ? 'Pause' : 'Play'}</button>
       <div className='grid' id='gameGrid' ref={gridRef} style={{gridTemplateColumns: `repeat(${numCols}, ${cellWidth}px)`,
                                     gridTemplateRows: `repeat(${numRows}, ${cellWidth}px)`,
       }}>

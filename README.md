@@ -11,3 +11,5 @@ To build and deploy an updated version to GitHub Pages use the command `npm run 
 
 Ideas for expansion:
 - what about other cell types, like predators
+
+https://beltoforion.de/en/game_of_life/
