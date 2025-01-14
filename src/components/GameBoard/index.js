@@ -6,7 +6,7 @@ function GameBoard({numRows, numCols}){
   const [cellsArr, setCells] = useState(Array(numRows*numCols).fill(0));
   const gridRef = useRef(null);
   const gameLoopIntervalRef = useRef(null);
-  const minCellWidth = 20; // minimum width of a cell
+  const minCellWidth = 8; // minimum width of a cell
   const [cellWidth, setCellWidth] = useState(minCellWidth);
 
   const [gameRunning, setGameRunning] = useState(false);
@@ -73,17 +73,56 @@ function GameBoard({numRows, numCols}){
     let cellAlive = cellsArr[cellIdx];
 
     if(cellAlive){
-      // I need a getNeighbours function I think
+      
     }
+
     // a live cell dies if it has fewer than 2 live neighbours.
 
     // a live cell with two or three live neighbours lives on to the next generation.
 
-    // a live cell wit hmore than 3 neighbors dies.
+    // a live cell with more than 3 neighbors dies.
 
     // a dead cell will be brought back to live if it has exactly 3 live neighbors.
 
     return Math.round(Math.random());
+  }
+
+  /* returns the number of live neighours of a cell, the following are the neighbours
+      x0 x1 x2
+      x3 __ x4
+      x5 x6 x7
+  */
+  const getNumLiveNeighbours = (cellIdx) => {
+    const directions = [
+      [-1,0], // x1
+      [1,0], // x6
+      [0,-1], // x3
+      [0,1], // x4
+      [-1,-1], // x0
+      [-1,1], // x2
+      [1,-1], // x5
+      [1,1], // x7
+    ];
+
+    let numLiveNeighbours = 0;
+
+    // convert the 1D index to its corresponding (row, col) coords
+    let cellRow = Math.floor(cellIdx / numCols);
+    let cellCol = cellIdx % numCols;
+
+    for (const [dRow, dCol] of directions) {
+      const newRow = cellRow + dRow;
+      const newCol = cellCol + dCol;
+      
+      // check if within bounds
+      if (newRow >= 0 && newRow < numRows && newCol >= 0 && newCol < numCols) {
+        console.log("(newRow * numCols + newCol): " + (newRow * numCols + newCol));
+
+        // convert back to 1D index and check if alive
+        numLiveNeighbours += cellsArr[(newRow * numCols + newCol)];
+      }
+    }
+    return numLiveNeighbours;
   }
 
   useEffect(() => {

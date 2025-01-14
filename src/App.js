@@ -14,7 +14,7 @@ function App() {
           <h1>Conway's Game of Life</h1>
           <h2>Conway's Game of Life</h2>
           <p></p>
-          <GameBoard numRows={22} numCols={40}></GameBoard>
+          <GameBoard numRows={50} numCols={100}></GameBoard>
           
           <div className='section' id='footer'>
             Designed and developed in Visual Studio Code with React, deployed through GitHub Pages - 2025
